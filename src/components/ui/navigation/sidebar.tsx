@@ -19,6 +19,12 @@ import { UserProfileDesktop, UserProfileMobile } from "./UserProfile"
 const navigation = [
   { name: "Overview", href: siteConfig.baseLinks.overview, icon: RiHome2Line },
   { name: "Details", href: siteConfig.baseLinks.details, icon: RiListCheck },
+  { name: "Orders", href: siteConfig.baseLinks.details, icon: RiListCheck },
+  { name: "Inventory", href: siteConfig.baseLinks.details, icon: RiListCheck },
+  { name: "Shipments", href: siteConfig.baseLinks.details, icon: RiListCheck },
+  { name: "Network", href: siteConfig.baseLinks.details, icon: RiGlobalFill },
+  { name: "Reports", href: siteConfig.baseLinks.details, icon: RiFolderChartLine },
+  { name: "Integrations", href: siteConfig.baseLinks.details, icon: RiListCheck },
   {
     name: "Settings",
     href: siteConfig.baseLinks.settings,

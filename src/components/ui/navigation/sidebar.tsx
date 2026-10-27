@@ -6,6 +6,8 @@ import {
   RiLinkM,
   RiListCheck,
   RiSettings5Line,
+  RiGlobalFill,
+  RiFolderChartLine,
 } from "@remixicon/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"

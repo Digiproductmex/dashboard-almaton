@@ -18,12 +18,12 @@ import {
 } from "@tanstack/react-table"
 import { DataTablePagination } from "../data-table/DataTablePagination"
 
-interface DataTableProps<TData, TValue = any> {
+interface DataTableProps<TData extends Record<string, any>, TValue = any> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 
-export function DataTable<TData, TValue = any>({
+export function DataTable<TData extends Record<string, any>, TValue = any>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {

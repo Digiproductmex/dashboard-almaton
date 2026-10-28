@@ -12,7 +12,7 @@ import {
   ColumnDef,
   flexRender,
   createCoreRowModel,
-  createPaginationRowModel,
+  createPaginatedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
 import { DataTablePagination } from "../data-table/DataTablePagination"
@@ -35,7 +35,7 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
         pageSize: pageSize,
       },
     },
-    getPaginationRowModel: createPaginationRowModel(),
+    getPaginationRowModel: createPaginatedRowModel(),
     getCoreRowModel: createCoreRowModel(),
   })
 

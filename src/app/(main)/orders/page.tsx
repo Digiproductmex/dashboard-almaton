@@ -1,16 +1,8 @@
 "use client"
 
 import { Button } from "@/components/Button"
-import { Card } from "@/components/Card"
-import { CategoryBar } from "@/components/CategoryBar"
 import { Divider } from "@/components/Divider"
-import { LineChartSupport } from "@/components/LineChartSupport"
-import { ProgressCircle } from "@/components/ProgressCircle"
 import { TicketDrawer } from "@/components/ui/TicketDrawer"
-import { DataTable } from "@/components/ui/data-table-support/DataTable"
-import { columns } from "@/components/ui/data-table-support/columns"
-import { tickets } from "@/data/support/tickets"
-import { volume } from "@/data/support/volume"
 import { RiAddLine } from "@remixicon/react"
 import React from "react"
 

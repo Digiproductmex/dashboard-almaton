@@ -11,8 +11,8 @@ import { cx } from "@/lib/utils"
 import {
   ColumnDef,
   flexRender,
-  getCoreRowModel,
-  getPaginationRowModel,
+  createCoreRowModel,
+  createPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table"
 import { DataTablePagination } from "../data-table/DataTablePagination"
@@ -35,8 +35,8 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
         pageSize: pageSize,
       },
     },
-    getPaginationRowModel: getPaginationRowModel(),
-    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: createPaginationRowModel(),
+    getCoreRowModel: createCoreRowModel(),
   })
 
   return (

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     creator: "@tremorlabs",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/almatonFavicon.ico",
   },
 }
 

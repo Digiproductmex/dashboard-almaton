@@ -116,9 +116,10 @@ const FirstPage = ({ formData, onUpdateForm }: FormPageProps) => (
               <SelectItemExtended
                 key={category.value}
                 value={category.value}
-                option={category.name}
                 description={category.description}
-              />
+              >
+                {category.name}
+              </SelectItemExtended>
             ))}
           </SelectContent>
         </Select>
@@ -139,9 +140,10 @@ const FirstPage = ({ formData, onUpdateForm }: FormPageProps) => (
               <SelectItemExtended
                 key={type.value}
                 value={type.value}
-                option={type.name}
                 description={type.description}
-              />
+              >
+                {type.name}
+              </SelectItemExtended>
             ))}
           </SelectContent>
         </Select>

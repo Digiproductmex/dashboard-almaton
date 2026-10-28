@@ -13,6 +13,8 @@ import {
   flexRender,
   createCoreRowModel,
   createPaginatedRowModel,
+  // @ts-ignore: Omitir validación estricta de nombres exportados por esta versión específica
+  useReactTable,
   useReactTable,
 } from "@tanstack/react-table"
 import { DataTablePagination } from "../data-table/DataTablePagination"

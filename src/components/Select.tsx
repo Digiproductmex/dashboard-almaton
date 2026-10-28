@@ -259,3 +259,5 @@ export {
   SelectTrigger,
   SelectValue,
 }
+
+export { SelectItem as SelectItemExtended };

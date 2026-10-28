@@ -113,14 +113,16 @@ const FirstPage = ({ formData, onUpdateForm }: FormPageProps) => (
           </SelectTrigger>
           <SelectContent>
             {categoryTypes.map((category) => (
-              <SelectItemExtended
-                key={category.value}
-                value={category.value}
-                description={category.description}
-              >
-                {category.name}
-              </SelectItemExtended>
-            ))}
+  <SelectItemExtended
+    key={category.value}
+    value={category.value}
+  >
+    <div className="flex flex-col">
+      <span className="font-medium">{category.name}</span>
+      <span className="text-xs text-gray-500">{category.description}</span>
+    </div>
+  </SelectItemExtended>
+))}
           </SelectContent>
         </Select>
       </FormField>
@@ -137,14 +139,16 @@ const FirstPage = ({ formData, onUpdateForm }: FormPageProps) => (
           </SelectTrigger>
           <SelectContent>
             {policyTypes.map((type) => (
-              <SelectItemExtended
-                key={type.value}
-                value={type.value}
-                description={type.description}
-              >
-                {type.name}
-              </SelectItemExtended>
-            ))}
+  <SelectItemExtended
+    key={type.value}
+    value={type.value}
+  >
+    <div className="flex flex-col">
+      <span className="font-medium">{type.name}</span>
+      <span className="text-xs text-gray-500">{type.description}</span>
+    </div>
+  </SelectItemExtended>
+))}
           </SelectContent>
         </Select>
       </FormField>

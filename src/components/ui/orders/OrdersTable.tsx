@@ -1,7 +1,17 @@
 "use client"
 
-import { Badge, type BadgeProps } from "@/components/Badge"
+import { Badge } from "@/components/Badge"
 import { Button } from "@/components/Button"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/Dialog"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,7 +29,12 @@ import {
   TableRoot,
   TableRow,
 } from "@/components/Table"
-import { priorities, type Ticket } from "@/data/support/schema"
+import {
+  getStatus,
+  priorities,
+  statuses,
+  type Ticket,
+} from "@/data/support/schema"
 import { cx } from "@/lib/utils"
 import {
   RiArrowDownSFill,
@@ -33,18 +48,6 @@ import { format } from "date-fns"
 import React from "react"
 
 const PAGE_SIZE = 10
-
-const statusVariants: Record<string, BadgeProps["variant"]> = {
-  resolved: "success",
-  "in-progress": "warning",
-  escalated: "error",
-}
-
-const statusActions = [
-  { label: "Completed", value: "resolved" },
-  { label: "Pending", value: "in-progress" },
-  { label: "Cancelled", value: "escalated" },
-]
 
 const columns: {
   header: string
@@ -67,11 +70,14 @@ const columns: {
   },
   {
     header: "Status",
-    render: (t) => (
-      <Badge variant={statusVariants[t.status] ?? "neutral"}>
-        {t.status.replace("-", " ")}
-      </Badge>
-    ),
+    render: (t) => {
+      const status = getStatus(t.status)
+      return (
+        <Badge variant={status?.variant ?? "neutral"}>
+          {status?.label ?? t.status}
+        </Badge>
+      )
+    },
     sortValue: (t) => t.status,
   },
   {
@@ -309,25 +315,55 @@ export function OrdersTable({
               </DropdownMenuTrigger>
               <DropdownMenuContent side="top" align="start">
                 <DropdownMenuLabel>Change status to</DropdownMenuLabel>
-                {statusActions.map((action) => (
+                {statuses.map((status) => (
                   <DropdownMenuItem
-                    key={action.value}
+                    key={status.value}
                     onClick={() =>
-                      onStatusChange(Array.from(selected), action.value)
+                      onStatusChange(Array.from(selected), status.value)
                     }
                   >
-                    {action.label}
+                    {status.label}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button
-              variant="secondary"
-              className="px-2 py-1.5"
-              onClick={() => onDelete(Array.from(selected))}
-            >
-              Delete order{plural}
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="secondary" className="px-2 py-1.5">
+                  Delete order{plural}
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>
+                    Delete {selected.size} order{plural}?
+                  </DialogTitle>
+                  <DialogDescription className="text-sm">
+                    This permanently removes the selected order{plural} and
+                    can&apos;t be undone.
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter className="mt-6">
+                  <DialogClose asChild>
+                    <Button
+                      variant="secondary"
+                      className="mt-2 w-full sm:mt-0 sm:w-fit"
+                    >
+                      Cancel
+                    </Button>
+                  </DialogClose>
+                  <DialogClose asChild>
+                    <Button
+                      variant="destructive"
+                      className="w-full sm:w-fit"
+                      onClick={() => onDelete(Array.from(selected))}
+                    >
+                      Delete order{plural}
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       )}

@@ -18,6 +18,20 @@ export type Ticket = z.infer<typeof schemaTickets>
 export const statusOptions = ["resolved", "in-progress", "escalated"] as const
 export type Status = (typeof statusOptions)[number]
 
+// single source for how a status is named and colored across the UI
+export const statuses: {
+  value: Status
+  label: string
+  variant: "success" | "warning" | "error"
+}[] = [
+  { value: "resolved", label: "Completed", variant: "success" },
+  { value: "in-progress", label: "Pending", variant: "warning" },
+  { value: "escalated", label: "Cancelled", variant: "error" },
+]
+
+export const getStatus = (value: string) =>
+  statuses.find((status) => status.value === value)
+
 export const categoryTypes = [
   {
     name: "Accident Report",

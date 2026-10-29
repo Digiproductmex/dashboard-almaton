@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/Select"
-import { priorities, statusOptions, type Ticket } from "@/data/support/schema"
+import { priorities, statuses, type Ticket } from "@/data/support/schema"
 import { endOfDay } from "date-fns"
 
 export type OrdersFilters = {
@@ -77,9 +77,9 @@ export function OrdersFilterbar({
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all">All statuses</SelectItem>
-          {statusOptions.map((status) => (
-            <SelectItem key={status} value={status} className="capitalize">
-              {status.replace("-", " ")}
+          {statuses.map((status) => (
+            <SelectItem key={status.value} value={status.value}>
+              {status.label}
             </SelectItem>
           ))}
         </SelectContent>

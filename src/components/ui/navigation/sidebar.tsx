@@ -6,12 +6,12 @@ import {
   RiLinkM,
   RiListCheck,
   RiSettings5Line,
-  RiGlobalFill,
+  RiGlobalLine,
   RiFolderChartLine,
-  RiFileList,
-  RiBox3,
-  RiTruck,
-  RiWebhook,
+  RiFileListLine,
+  RiBox3Line,
+  RiTruckLine,
+  RiWebhookLine,
 } from "@remixicon/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -25,12 +25,12 @@ import { UserProfileDesktop, UserProfileMobile } from "./UserProfile"
 const navigation = [
   { name: "Overview", href: siteConfig.baseLinks.overview, icon: RiHome2Line },
   { name: "Details", href: siteConfig.baseLinks.details, icon: RiListCheck },
-  { name: "Orders", href: siteConfig.baseLinks.orders, icon: RiFileList},
-  { name: "Inventory", href: siteConfig.baseLinks.inventory, icon: RiBox3 },
-  { name: "Shipments", href: siteConfig.baseLinks.shipments, icon: RiTruck },
-  { name: "Network", href: siteConfig.baseLinks.network, icon: RiGlobalFill },
+  { name: "Orders", href: siteConfig.baseLinks.orders, icon: RiFileListLine},
+  { name: "Inventory", href: siteConfig.baseLinks.inventory, icon: RiBox3Line },
+  { name: "Shipments", href: siteConfig.baseLinks.shipments, icon: RiTruckLine },
+  { name: "Network", href: siteConfig.baseLinks.network, icon: RiGlobalLine },
   { name: "Reports", href: siteConfig.baseLinks.reports, icon: RiFolderChartLine },
-  { name: "Integrations", href: siteConfig.baseLinks.integrations, icon: RiWebhook },
+  { name: "Integrations", href: siteConfig.baseLinks.integrations, icon: RiWebhookLine },
   {
     name: "Settings",
     href: siteConfig.baseLinks.settings,

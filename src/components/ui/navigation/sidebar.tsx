@@ -25,7 +25,7 @@ const navigation = [
   { name: "Inventory", href: siteConfig.baseLinks.details, icon: RiListCheck },
   { name: "Shipments", href: siteConfig.baseLinks.details, icon: RiListCheck },
   { name: "Network", href: siteConfig.baseLinks.details, icon: RiGlobalFill },
-  { name: "Reports", href: siteConfig.baseLinks.details, icon: RiFolderChartLine },
+  { name: "Reports", href: siteConfig.baseLinks.reports, icon: RiFolderChartLine },
   { name: "Integrations", href: siteConfig.baseLinks.details, icon: RiListCheck },
   {
     name: "Settings",

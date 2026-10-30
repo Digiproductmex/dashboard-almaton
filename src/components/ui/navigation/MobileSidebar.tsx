@@ -11,6 +11,7 @@ import {
 } from "@/components/Drawer"
 import { cx, focusRing } from "@/lib/utils"
 import {
+  RiFolderChartLine,
   RiHome2Line,
   RiLinkM,
   RiListCheck,
@@ -23,6 +24,7 @@ import { usePathname } from "next/navigation"
 const navigation = [
   { name: "Overview", href: siteConfig.baseLinks.overview, icon: RiHome2Line },
   { name: "Details", href: siteConfig.baseLinks.details, icon: RiListCheck },
+  { name: "Reports", href: siteConfig.baseLinks.reports, icon: RiFolderChartLine },
   {
     name: "Settings",
     href: siteConfig.baseLinks.settings,

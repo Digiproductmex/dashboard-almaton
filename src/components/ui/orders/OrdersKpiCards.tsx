@@ -8,12 +8,12 @@ const shareFormatter = new Intl.NumberFormat("en-US", {
 
 export function OrdersKpiCards({ tickets }: { tickets: Ticket[] }) {
   return (
-    <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <Card>
+    <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <Card className="p-4">
         <dt className="truncate text-sm text-gray-500 dark:text-gray-500">
           Total Orders
         </dt>
-        <dd className="mt-2 text-3xl font-semibold tabular-nums text-gray-900 dark:text-gray-50">
+        <dd className="mt-1 text-2xl font-semibold tabular-nums text-gray-900 dark:text-gray-50">
           {tickets.length}
         </dd>
       </Card>
@@ -23,7 +23,7 @@ export function OrdersKpiCards({ tickets }: { tickets: Ticket[] }) {
         ).length
 
         return (
-          <Card key={status.value}>
+          <Card key={status.value} className="p-4">
             <dt className="flex items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-500">
               <span className="truncate">{status.label} Orders</span>
               {tickets.length > 0 && (
@@ -32,7 +32,7 @@ export function OrdersKpiCards({ tickets }: { tickets: Ticket[] }) {
                 </span>
               )}
             </dt>
-            <dd className="mt-2 text-3xl font-semibold tabular-nums text-gray-900 dark:text-gray-50">
+            <dd className="mt-1 text-2xl font-semibold tabular-nums text-gray-900 dark:text-gray-50">
               {count}
             </dd>
           </Card>
